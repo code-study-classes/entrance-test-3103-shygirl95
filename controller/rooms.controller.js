@@ -3,7 +3,7 @@ import db from "../db.js";
 class RoomController {
     async createRoom (req, res) {
         const {number, category, status_free} = req.body;
-        const newHotel = await db.query(`INSERT INTO rooms (number, category, status_free) values ($1, $2, $3, ) RETURNING *`, [number, category, status_free]);
+        const newHotel = await db.query(`INSERT INTO rooms (number, category, status_free) values ($1, $2, $3 ) RETURNING *`, [number, category, status_free]);
         res.json(newHotel.rows[0]);
     }
     async getFreeRoom (req, res) {
