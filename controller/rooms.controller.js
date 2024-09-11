@@ -22,17 +22,3 @@ class RoomController {
 }
 
 export default new RoomController();
-
-// CREATE TABLE rooms (
-//     id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-//     number VARCHAR(10) NOT NULL,
-//     category category_type NOT NULL,
-//     number_of_seats INTEGER GENERATED ALWAYS AS (
-//         CASE category
-//             WHEN 'Стандарт' THEN 2
-//             WHEN 'Люкс' THEN 2
-//             WHEN 'Апартаменты' THEN 4
-//         END
-//     ) STORED,
-//     status_free status_type DEFAULT 'Свободен' NOT NULL
-// );
