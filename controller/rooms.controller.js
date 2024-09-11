@@ -8,7 +8,7 @@ class RoomController {
     }
     async getFreeRoom (req, res) {
         const freeHotel = await db.query(`SELECT * FROM rooms WHERE status_free = 'Свободен'`);
-        res.json(freeHotel)
+        res.json(freeHotel.rows)
     }
     async reverseStatus (req, res) {
         const {id} = req.params;
