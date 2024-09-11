@@ -2,6 +2,13 @@ CREATE TABLE regions (
     id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     name VARCHAR(150) NOT NULL
 );
+INSERT INTO regions (name) VALUES
+('Russia'),
+('Japan'),
+('Germany'),
+('France'),
+('USA'),
+('Brazil');
 
 CREATE TABLE hotels (
     id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
