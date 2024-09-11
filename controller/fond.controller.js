@@ -7,11 +7,18 @@ class FondController {
         res.json(newHotel.rows[0]);
     }
     async getFreeHotel (req, res) {
-        const freeHotel = await db.query(`SELECT from number_fond`)
-     }
-    //  async reverseStatus () {
-         
-    //  }
+        const freeHotel = await db.query(`SELECT status_free from number_fond `);
+        res.json(freeHotel)
+    }
+    async reverseStatus (req, res) {
+        const {id} = req.params;
+        const result = await pool.query(`SELECT status_free FROM number_fond WHERE id = $1`, [id]);
+        const currentStatus = result.rows[0].status_free;
+        const newStatus = currentStatus === 'Свободен' ? 'Занят' : 'Свободен';
+    
+        await pool.query(`UPDATE number_fond SET status_free = $1 WHERE id = $2`, [newStatus, id]);
+        res.json(newStatus);
+      } 
 }
 
 export default new FondController();
