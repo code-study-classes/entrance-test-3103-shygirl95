@@ -11,6 +11,6 @@ CREATE TABLE number_fond (
     id SERIAL PRIMARY KEY,
     numer VARCHAR(10),
     category category_type,
-    number_of_seats 
-    status_free status_type,
+    number_of_seats,
+    status_free status_type
 );
