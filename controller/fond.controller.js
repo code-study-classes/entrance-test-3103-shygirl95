@@ -6,9 +6,9 @@ class FondController {
         const newHotel = await db.query(`INSERT INTO hotelinfo (name, category, number_of_seats, status_free) values ($1, $2, $3, $4) RETURNING *`, [name, region, number_of_seats, status_free]);
         res.json(newHotel.rows[0]);
     }
-    // async getFreeHotel (req, res) {
-    //     const freeHotel = await db.query(`SELECT from number_fond`)
-    //  }
+    async getFreeHotel (req, res) {
+        const freeHotel = await db.query(`SELECT from number_fond`)
+     }
     //  async reverseStatus () {
          
     //  }
